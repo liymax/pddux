@@ -11,6 +11,9 @@ export function createProvider(reducer, actions, context) {
       const dispatch = async (actionModel)=>{
         let newState = produce(this.state,draft=>{
           reduce(draft, actionModel)
+        },(patches, inversePatches) => {
+          //console.log("patches:",patches);
+          //console.log("inversePatches:",inversePatches);
         });
         this.setState(newState)
       };
@@ -36,14 +39,14 @@ export function createProvider(reducer, actions, context) {
 }
 
 //消费单个Provider
-export const map=(context,mapProps=[])=>Component=>{
+export const map=(context,mapState=[])=>Component=>{
   return class extends React.Component{
     render() {
       const { Consumer } = context;
       return (
         <Consumer>
           {store => {
-            const props = mapProps.reduce((o,e)=>{
+            const props = mapState.reduce((o,e)=>{
               o[e] = store[e];
               return o;
             },{});
@@ -55,33 +58,30 @@ export const map=(context,mapProps=[])=>Component=>{
   }
 };
 
-
-//消费多个Provider
-export const multiMap =(contexts=[])=>Component=>{
+//同时消费多个Provider
+export const multiMap =(multiCtx=[])=>Component=>{
   return class extends React.Component{
     render(){
-      let len = contexts.length,index=0,allProps={};
+      let len = multiCtx.length,index=0,allProps={};
       return (function compose(item) {
-        let {props,context:{Consumer}} = item;
+        let {mapState,context:{Consumer}} = item;
         if(index < len-1){
           index++;
           return <Consumer>
             {store => {
-              props.forEach(e=> allProps[e] = store[e]);
-              return compose(contexts[index]);
+	            mapState.forEach(e=> allProps[e] = store[e]);
+              return compose(multiCtx[index]);
             }}
           </Consumer>
         }else if(index === len-1){
           return <Consumer>
             {store => {
-              props.forEach(e=> allProps[e] = store[e]);
+	            mapState.forEach(e=> allProps[e] = store[e]);
               return <Component {...allProps} />
             }}
           </Consumer>
         }
-      })(contexts[index])
+      })(multiCtx[index])
     }
   }
 };
-
-
