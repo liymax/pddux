@@ -1,10 +1,13 @@
 {
   "name": "sudux",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/sudux.js",
+  "module": "src/index.js",
+  "description": "A state manage lib based on React.createContext",
   "license": "MIT",
   "scripts": {
-    "dev": "node dev-server.js"
+    "dev": "node dev-server.js",
+    "build:pkg":"webpack --config webpack.config.pkg.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -27,8 +30,24 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
+
   "dependencies": {
     "immer": "^1.5.0",
     "react": "^16.4.2"
-  }
+  },
+
+  "peerDependencies": {
+    "immer": "^1.5.0 || >=1.5.0",
+    "react": "^16.4.2 || >=16.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:liymax/sudux.git"
+  },
+  "keywords": [
+    "state-manage",
+    "react context",
+    "redux",
+    "immer"
+  ]
 }
