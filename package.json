@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+    "env",{
+        "targets":{
+          "browsers": ["last 2 versions", "safari >= 8"]
+        }
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+
+  "plugins": [
+    "transform-decorators-legacy",
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }],
+    "react-hot-loader/babel",
+    "transform-async-to-generator"
+  ]
+}
