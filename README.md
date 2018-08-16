@@ -93,7 +93,7 @@ export function mapTodo(mapState) {
 ```javascript
 @map(todoCtx,['switchFilterType','filterType'])
 //等效于 @mapTodo(['switchFilterType','filterType'])
-class MyComponnet extends React.Component{
+class MyComponent extends React.Component{
     render(){
         cosnt {switchFilterType,filterType} = this.props;
     }
@@ -106,7 +106,7 @@ class MyComponnet extends React.Component{
 	{context: todoCtx,mapState:['switchFilterType','filterType']},
 	{context: otherCtx,mapState:['your state name']}
 ])
-class MyComponnet extends React.Component{
+class MyComponent extends React.Component{
     render(){
         cosnt {switchFilterType,filterType} = this.props;
     }
