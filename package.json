@@ -7,8 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "node dev-server.js",
-    "build:pkg":"webpack --config webpack.config.pkg.js"
+    "build:pkg": "webpack --config webpack.config.pkg.js"
   },
+  "sideEffects": false,
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -30,12 +31,10 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
-
   "dependencies": {
     "immer": "^1.5.0",
     "react": "^16.4.2"
   },
-
   "peerDependencies": {
     "immer": "^1.5.0 || >=1.5.0",
     "react": "^16.4.2 || >=16.4.2"
@@ -49,5 +48,11 @@
     "react context",
     "redux",
     "immer"
-  ]
+  ],
+  "files": [
+    "README.md",
+    "dist",
+    "src"
+  ],
+  "author": "liymax"
 }
