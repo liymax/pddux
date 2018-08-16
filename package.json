@@ -45,9 +45,9 @@
     "url": "git@github.com:liymax/sudux.git"
   },
   "keywords": [
-    "state-manage",
-    "react context",
-    "redux",
+    "createContext",
+    "Provider-Customer",
+    "alike-redux",
     "immer"
   ]
 }
