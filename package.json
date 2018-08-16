@@ -47,7 +47,13 @@
   "keywords": [
     "createContext",
     "Provider-Customer",
-    "alike-redux",
-    "immer"
+    "redux",
+    "immer",
+    "react-component",
+    "react",
+    "reactjs",
+    "reactive",
+    "state management",
+    "data flow"
   ]
 }
