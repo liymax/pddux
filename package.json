@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/sudux.js",
   "module": "src/index.js",
-  "description": "A state manage lib based on React.createContext",
+  "description": "Simple, scalable state management based on React.createContext",
   "license": "MIT",
   "scripts": {
     "dev": "node dev-server.js",
