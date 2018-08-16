@@ -85,3 +85,9 @@ export const multiMap =(multiCtx=[])=>Component=>{
     }
   }
 };
+
+export default {
+  createProvider,
+  map,
+  multiMap
+}
