@@ -1,5 +1,5 @@
 {
-  "name": "sudux",
+  "name": "pddux",
   "version": "0.1.0",
   "main": "lib/index.min.js",
   "module": "lib/index.module.js",
@@ -61,9 +61,5 @@
     "lib",
     "src"
   ],
-  "author": "liymax",
-  "peerDependencies": {
-    "immer": "^1.5.0",
-    "react": "^16.4.2"
-  }
+  "author": "liymax"
 }
