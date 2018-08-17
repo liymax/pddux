@@ -1,6 +1,6 @@
 {
   "name": "pddux",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/index.min.js",
   "module": "lib/index.module.js",
   "description": "Simple, scalable state management based on React.createContext",
