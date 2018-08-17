@@ -2,16 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const base = {
 	resolve: {
 		modules: [
 			path.resolve(__dirname, 'node_modules'),
       path.join(__dirname, './src')
-		],
-		alias: {
-			src: path.resolve(__dirname, 'src'),
-		}
+		]
 	},
 
 	module: {
@@ -36,14 +32,6 @@ const base = {
   }
 };
 
-const { platform } = process;
-let browser = 'google-chrome';
-if (platform === 'darwin') {
-  browser = 'google chrome';
-} else if (platform === 'win32') {
-  browser = 'chrome';
-}
-
 let hotPolyfill = ['react-hot-loader/patch','react-dev-utils/webpackHotDevClient','webpack/hot/only-dev-server'];
 module.exports=Object.assign({
 	mode:"development",
@@ -66,8 +54,7 @@ module.exports=Object.assign({
 			filename: "index.html",
 			inject: "body",
 			chunks: ["vendor","todo"]
-		}),
-    new OpenBrowserPlugin({ browser, url: 'http://localhost:9009' })
+		})
 	]
 },base);
 
