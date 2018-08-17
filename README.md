@@ -1,9 +1,9 @@
-# sudux
+## pddux
 基于react新提供的context api，实现的一套类似redux的状态管理工具。简洁灵活易扩展，依赖少，源码不足百行
-
+> 之前名字叫sudux,现在改为pddux。所以sudux包就放弃了
 ### Install
 ```shell
-npm install sudux -S
+npm install pddux -S
 ```
 ### Quick Start
 首先，我们定义一个action, 路径context/actions/todo.js(来自example/todo)
