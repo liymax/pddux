@@ -35,7 +35,7 @@ function build(mode, filename){
 	}).then(function(bundle) {
 		const options = {
 			file: path.resolve(__dirname,"lib", filename),
-			format: mode.endsWith(".min") ? mode.slice(0, -".min".length) : mode,
+			format: mode.endsWith(".min") ? mode.slice(0, -4) : mode,
 			name: "sudux",
 			exports: "named",
 			globals: {

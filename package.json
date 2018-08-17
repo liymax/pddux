@@ -1,13 +1,13 @@
 {
   "name": "sudux",
   "version": "0.1.0",
-  "main": "dist/sudux.js",
-  "module": "src/index.js",
+  "main": "lib/index.min.js",
+  "module": "lib/index.module.js",
   "description": "Simple, scalable state management based on React.createContext",
   "license": "MIT",
   "scripts": {
     "dev": "node dev-server.js",
-    "build:pkg": "webpack --config webpack.config.pkg.js"
+    "build:pkg": "node rollup-build.js"
   },
   "sideEffects": false,
   "devDependencies": {
@@ -26,6 +26,11 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
+    "rollup": "^0.64.1",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.5",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^4.0.0",
     "styled-components": "^3.4.2",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
@@ -53,7 +58,7 @@
   ],
   "files": [
     "README.md",
-    "dist",
+    "lib",
     "src"
   ],
   "author": "liymax",
