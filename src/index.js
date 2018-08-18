@@ -8,14 +8,18 @@ export function createProvider(reducer, actions, context) {
       const {initState, reduce} = reducer;
       this.state = {...initState};
 
-      const dispatch = async (actionModel)=>{
-        let newState = produce(this.state,draft=>{
-          reduce(draft, actionModel)
-        },(patches, inversePatches) => {
-          //console.log("patches:",patches);
-          //console.log("inversePatches:",inversePatches);
+      const dispatch = (actionModel)=>{
+        return new Promise((resolve)=>{
+					let newState = produce(this.state,draft=>{
+						reduce(draft, actionModel)
+					},(patches, inversePatches) => {
+						//console.log("patches:",patches);
+						//console.log("inversePatches:",inversePatches);
+					});
+					this.setState(newState,()=>{
+						resolve();
+          });
         });
-        this.setState(newState)
       };
 
       const getState = ()=>this.state;
@@ -40,7 +44,7 @@ export function createProvider(reducer, actions, context) {
 
 //消费单个Provider
 export const map=(context,mapState=[])=>Component=>{
-  return class extends React.Component{
+  return class extends React.PureComponent{
     render() {
       const { Consumer } = context;
       return (
@@ -60,7 +64,7 @@ export const map=(context,mapState=[])=>Component=>{
 
 //同时消费多个Provider
 export const multiMap =(multiCtx=[])=>Component=>{
-  return class extends React.Component{
+  return class extends React.PureComponent{
     render(){
       let len = multiCtx.length,index=0,allProps={};
       return (function compose(item) {

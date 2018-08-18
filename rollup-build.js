@@ -30,7 +30,7 @@ function build(mode, filename){
 
 	return rollup({
 		input: "src/index.js",
-		external: ["react", "immer"],
+		external: ["react"],
 		plugins: plugins
 	}).then(function(bundle) {
 		const options = {
@@ -39,8 +39,7 @@ function build(mode, filename){
 			name: "sudux",
 			exports: "named",
 			globals: {
-				react: "React",
-				immer: "produce"
+				react: "React"
 			}
 		};
 		return bundle.write(options)
