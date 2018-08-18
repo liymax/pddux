@@ -3928,12 +3928,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-pddux@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/pddux/-/pddux-0.1.2.tgz#87251fc1f7d3dc6d2d1ac9870901495a536b6a46"
+pddux@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/pddux/-/pddux-0.1.3.tgz#e57519cb2e8f68f03d5ca1edd59f8192b5d821ef"
   dependencies:
     immer "^1.5.0"
-    react "^16.4.2"
 
 pify@^2.0.0:
   version "2.3.0"
