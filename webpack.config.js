@@ -19,17 +19,7 @@ const base = {
       },*/
 		]
 	},
-	devtool: 'cheap-module-eval-source-map',
-  stats: {
-    colors: true,
-    timings: true,
-		version:true,
-	  hash:true,
-    chunks: true,
-    chunkModules: false,
-    cached: true,
-    cachedAssets: true
-  }
+	devtool: 'cheap-module-eval-source-map'
 };
 
 let hotPolyfill = ['react-hot-loader/patch','react-dev-utils/webpackHotDevClient','webpack/hot/only-dev-server'];
