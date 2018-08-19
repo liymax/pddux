@@ -16,6 +16,7 @@ export function createProvider(reducer, actions, context) {
 						//console.log("patches:",patches);
 						//console.log("inversePatches:",inversePatches);
 					});
+
 					this.setState(newState,()=>{
 						resolve();
           });
