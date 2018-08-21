@@ -4,6 +4,7 @@
 ### Install
 ```shell
 npm install pddux -S
+yarn add pddux
 ```
 ### Quick Start
 首先，我们定义一个action, 路径context/actions/todo.js(来自example/todo)
