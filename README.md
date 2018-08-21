@@ -1,6 +1,6 @@
 ## pddux
 基于react新提供的context api，实现的一套类似redux的状态管理工具。简洁灵活易扩展，依赖少，源码不足百行
-> 之前名字叫sudux,现在改为pddux。所以sudux包就放弃了
+> 之前名字叫sudux,现在改为pddux。故sudux包弃用
 ### Install
 ```shell
 npm install pddux -S
@@ -79,15 +79,15 @@ export const todoCtx = React.createContext(null);
 export const TodoProvider = createProvider(reducer,actions,todoCtx);
 
 //这是绑定todoCtx的映射函数，方便消费TodoProvider
-export function mapTodo(mapState) {
-	return map(todoCtx, mapState);
+export function mapTodo(mapStore) {
+	return map(todoCtx, mapStore);
 }
 ```
 
 ### 基本概念
 这是一个类似redux状态管理库，形式上和redux很相似。而内部实现上，则充分利用react16.3以来提供的新context api，以更符合直觉的方式予以实现，并与该新的context api在思想上高度切合，都是基于供需关系的基本思想。本库总共只有三个api,分别是createProvider、map和multiMap。
-其中createProvider，专门用来创建各种上下文(contxet)的Provider，从上例可见一斑；
-而map则专门来消费指定上下文(contxet)的Provider，也就是将其中的状态映射到组件的属性；
+其中createProvider，专门用来创建各种上下文(context)的Provider，从上例可见一斑；
+而map则专门来消费指定上下文(context)的Provider，也就是将其中的状态映射到组件的属性；
 最后，有时一个组件可能会需要多个Provider中的store，于是就轮到multiMap上场了。总而言之，通过该库可以让这种供需式的状态管理变得更加方便灵活，且可控性高。
 
 >map使用示例
@@ -104,8 +104,8 @@ class MyComponent extends React.Component{
 >multiMap使用示例
 ```javascript
 @multiMap([
-	{context: todoCtx,mapState:['switchFilterType','filterType']},
-	{context: otherCtx,mapState:['your state name']}
+	{context: todoCtx,mapStore:['switchFilterType','filterType']},
+	{context: otherCtx,mapStore:['your state name']}
 ])
 class MyComponent extends React.Component{
     render(){

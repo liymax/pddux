@@ -7,7 +7,7 @@ import * as actions from "./actions/todo";
 export const todoCtx = React.createContext(null);
 export const TodoProvider = createProvider(reducer,actions,todoCtx);
 
-export function mapTodo(mapState) {
-	return map(todoCtx, mapState); //or
-	//return multiMap([{mapState,context:todoCtx}]);
+export function mapTodo(mapStore) {
+	return map(todoCtx, mapStore); //or
+	//return multiMap([{mapStore,context:todoCtx}]);
 }

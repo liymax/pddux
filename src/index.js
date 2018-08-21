@@ -37,12 +37,12 @@ export function createProvider(reducer, actions, context) {
 }
 
 //消费单个Provider
-export const map=(context,mapState=[])=>Component=>{
+export const map=(context,mapStore=[])=>Component=>{
   return function(){
 		const { Consumer } = context;
 		return <Consumer>
       {store => {
-        const props = mapState.reduce((o,e)=>{
+        const props = mapStore.reduce((o,e)=>{
           o[e] = store[e];
           return o;
         },{});
@@ -57,19 +57,19 @@ export const multiMap =(multiCtx=[])=>Component=>{
   return function(){
     let len = multiCtx.length,index=0,allProps={};
     return (function compose(item) {
-      let {mapState,context:{Consumer}} = item;
+      let {mapStore,context:{Consumer}} = item;
       if(index < len-1){
         index++;
         return <Consumer>
           {store => {
-            mapState.forEach(e=> allProps[e] = store[e]);
+            mapStore.forEach(e=> allProps[e] = store[e]);
             return compose(multiCtx[index]);
           }}
         </Consumer>
       }else if(index === len-1){
         return <Consumer>
           {store => {
-            mapState.forEach(e=> allProps[e] = store[e]);
+            mapStore.forEach(e=> allProps[e] = store[e]);
             return <Component {...allProps} />
           }}
         </Consumer>
