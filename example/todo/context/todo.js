@@ -1,5 +1,5 @@
 import React from "react";
-import {createProvider, map} from 'pddux';
+import {createProvider, map} from '../../../lib';
 
 import * as reducer from "./reducers/todo";
 import * as actions from "./actions/todo";

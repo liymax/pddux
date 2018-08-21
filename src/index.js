@@ -7,7 +7,6 @@ export function createProvider(reducer, actions, context) {
       super(props);
       const {initState, reduce} = reducer;
       this.state = {...initState};
-
       const dispatch = (actionModel)=>{
         return new Promise((resolve)=>{
 					let newState = produce(this.state,draft=>{
@@ -16,15 +15,12 @@ export function createProvider(reducer, actions, context) {
 						//console.log("patches:",patches);
 						//console.log("inversePatches:",inversePatches);
 					});
-
 					this.setState(newState,()=>{
 						resolve();
           });
         });
       };
-
       const getState = ()=>this.state;
-
       //bind action
       this.actions = {};
       Object.entries(actions).forEach(([k,v])=>{
@@ -35,58 +31,49 @@ export function createProvider(reducer, actions, context) {
     render(){
       const { Provider } = context;
       const store = {...this.state, ...this.actions};
-      return (
-        <Provider value={store}>
-          {this.props.children}
-        </Provider>);
+      return <Provider value={store}>{this.props.children}</Provider>
     }
   }
 }
 
 //消费单个Provider
 export const map=(context,mapState=[])=>Component=>{
-  return class extends React.PureComponent{
-    render() {
-      const { Consumer } = context;
-      return (
-        <Consumer>
-          {store => {
-            const props = mapState.reduce((o,e)=>{
-              o[e] = store[e];
-              return o;
-            },{});
-            return <Component {...props} />
-          }}
-        </Consumer>
-      )
-    }
-  }
+  return function(){
+		const { Consumer } = context;
+		return <Consumer>
+      {store => {
+        const props = mapState.reduce((o,e)=>{
+          o[e] = store[e];
+          return o;
+        },{});
+        return <Component {...props} />
+      }}
+    </Consumer>
+	}
 };
 
 //同时消费多个Provider
 export const multiMap =(multiCtx=[])=>Component=>{
-  return class extends React.PureComponent{
-    render(){
-      let len = multiCtx.length,index=0,allProps={};
-      return (function compose(item) {
-        let {mapState,context:{Consumer}} = item;
-        if(index < len-1){
-          index++;
-          return <Consumer>
-            {store => {
-	            mapState.forEach(e=> allProps[e] = store[e]);
-              return compose(multiCtx[index]);
-            }}
-          </Consumer>
-        }else if(index === len-1){
-          return <Consumer>
-            {store => {
-	            mapState.forEach(e=> allProps[e] = store[e]);
-              return <Component {...allProps} />
-            }}
-          </Consumer>
-        }
-      })(multiCtx[index])
-    }
+  return function(){
+    let len = multiCtx.length,index=0,allProps={};
+    return (function compose(item) {
+      let {mapState,context:{Consumer}} = item;
+      if(index < len-1){
+        index++;
+        return <Consumer>
+          {store => {
+            mapState.forEach(e=> allProps[e] = store[e]);
+            return compose(multiCtx[index]);
+          }}
+        </Consumer>
+      }else if(index === len-1){
+        return <Consumer>
+          {store => {
+            mapState.forEach(e=> allProps[e] = store[e]);
+            return <Component {...allProps} />
+          }}
+        </Consumer>
+      }
+    })(multiCtx[index])
   }
 };
