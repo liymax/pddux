@@ -36,14 +36,10 @@ const List = styled.ul`
 			padding: 0 10px;
 		}
 		&>em{
-			display: inline-block;
-			width: 6px;
-			height: 6px;
-			border-radius: 50%;
-			background-color: darkorange;
+			color: darkorange;
 			position: absolute;
-			top: 6px;
-			left: -12px;
+			top: 0;
+			left: -15px;
 		}
 	}
 `;
@@ -95,10 +91,10 @@ class App extends React.PureComponent {
 				<p>主要是vue、vuex、vue-router、less和element ui等</p>
 				<h3>职责描述</h3>
 				<List>
-					<li><em />作为三位核心开发之一，一边负责重要业务模块的开发，一边开发公共组件和技术难点的攻克</li>
-					<li><em />主动实现无element ui依赖的组件，并在业务开发实践中减少其使用，<br /><br />
+					<li><em>1</em>作为三位核心开发之一，一边负责重要业务模块的开发，一边开发公共组件和技术难点的攻克</li>
+					<li><em>2</em>主动实现无element ui依赖的组件，并在业务开发实践中减少其使用，<br /><br />
 						从而在后面能从容应对各种需求变化，让客户深表满意</li>
-					<li><em />负责指导刚入职新手员工，让他们快速熟悉相关技术，能尽早投入工作，加快个人成长</li>
+					<li><em>3</em>负责指导刚入职新手员工，让他们快速熟悉相关技术，能尽早投入工作，加快个人成长</li>
 				</List>
 			</Project>
 
@@ -111,9 +107,9 @@ class App extends React.PureComponent {
 				<p>主要是react、redux、webpack、d3和less等</p>
 				<h3>职责描述</h3>
 				<List>
-					<li><em />项目主要开发者，负责项目的框架搭建和相关技术调研和选型</li>
-					<li><em />负责整体框架的优化和全局共公接口的封装，以及主要业务模块的开发</li>
-					<li><em />负责项目开发中遇到的跨平台问题和兼容性问题的研究，以及解决方案的制定和实施</li>
+					<li><em>1</em>项目主要开发者，负责项目的框架搭建和相关技术调研和选型</li>
+					<li><em>2</em>负责整体框架的优化和全局共公接口的封装，以及主要业务模块的开发</li>
+					<li><em>3</em>负责项目开发中遇到的跨平台问题和兼容性问题的研究，以及解决方案的制定和实施</li>
 				</List>
 			</Project>
 
@@ -126,9 +122,9 @@ class App extends React.PureComponent {
 				<p>主要是react、redux、webpack、d3和sass等</p>
 				<h3>职责描述</h3>
 				<List>
-					<li><em />项目主要开发者，负责项目主要业务模块的重构，保证了项目良性发展</li>
-					<li><em />负责开发各种能满足客户需求的复杂图表组件</li>
-					<li><em />负责研究并攻克项目开发中遇到的各种技术难点</li>
+					<li><em>1</em>项目主要开发者，负责项目主要业务模块的重构，保证了项目良性发展</li>
+					<li><em>2</em>负责开发各种能满足客户需求的复杂图表组件</li>
+					<li><em>3</em>负责研究并攻克项目开发中遇到的各种技术难点</li>
 				</List>
 			</Project>
 			<h2>开源技术</h2>
@@ -148,10 +144,10 @@ class App extends React.PureComponent {
 			</List>
 			<h2>自我评价</h2>
 			<List>
-				<li><em />对开发有着浓厚的兴趣，能专注于开发工作，并快速上手新项目。</li>
-				<li><em />对新兴技术充满期待和热情，喜欢迎接具有挑战的事情。</li>
-				<li><em />做事认真负责，严于律己，在开发上更是从不含糊。</li>
-				<li><em />喜欢交流，乐与分享，无论是技术上见解还是生活上的感悟。</li>
+				<li><em>1</em>对开发有着浓厚的兴趣，能专注于开发工作，并快速上手新项目。</li>
+				<li><em>2</em>对新兴技术充满期待和热情，喜欢迎接具有挑战的事情。</li>
+				<li><em>3</em>做事认真负责，严于律己，在开发上更是从不含糊。</li>
+				<li><em>4</em>喜欢交流，乐与分享，无论是技术上见解还是生活上的感悟。</li>
 			</List>
 		</Container>;
 	}
