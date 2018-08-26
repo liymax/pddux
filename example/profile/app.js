@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {hot} from "react-hot-loader";
 
 const Container = styled.div`
-	width: 800px;
+	width: 780px;
 	margin: 20px auto;
 	&>h2{
 		font-size: 20px;
@@ -143,7 +143,7 @@ class App extends React.PureComponent {
 				<li><label>服务运维：</label><span>linux/shell</span></li>
 			</List>
 			<h2>自我评价</h2>
-			<List>
+			<List style={{paddingLeft:40}}>
 				<li><em>1</em>对开发有着浓厚的兴趣，能专注于开发工作，并快速上手新项目。</li>
 				<li><em>2</em>对新兴技术充满期待和热情，喜欢迎接具有挑战的事情。</li>
 				<li><em>3</em>做事认真负责，严于律己，在开发上更是从不含糊。</li>

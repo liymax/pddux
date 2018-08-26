@@ -27,7 +27,7 @@ module.exports=Object.assign({
 	mode:"development",
 	entry:{
     vendor: ['react', 'react-dom'],
-		todo:[...hotPolyfill,"./example/todo/index.js"]
+		example:[...hotPolyfill,"./example/profile/index.js"]
 	},
 	output:{
 		filename:"[name].js?v=[hash:8]",
@@ -39,11 +39,11 @@ module.exports=Object.assign({
 		new CleanWebpackPlugin(['dist']),
     new webpack.HotModuleReplacementPlugin(),
 		new htmlWebpackPlugin({
-			title: "todo example",
+			title: "my example",
 			template: "./template/index.html",
 			filename: "index.html",
 			inject: "body",
-			chunks: ["vendor","todo"]
+			chunks: ["vendor","example"]
 		})
 	]
 },base);
