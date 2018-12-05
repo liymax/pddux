@@ -19,6 +19,7 @@ function build(mode, filename){
 		}),
 		commonjs()
 	];
+
 	if(mode.endsWith(".min")) {
 		plugins.push(
 			uglify({
@@ -36,7 +37,7 @@ function build(mode, filename){
 		const options = {
 			file: path.resolve(__dirname,"lib", filename),
 			format: mode.endsWith(".min") ? mode.slice(0, -4) : mode,
-			name: "sudux",
+			name: "pddux",
 			exports: "named",
 			globals: {
 				react: "React"
