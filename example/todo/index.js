@@ -1,7 +1,10 @@
-import "../reset";
-
 import React from 'react';
-import { render } from 'react-dom';
-import App from './app';
+import {TodoProvider} from "./context/todo";
+import TodoContainer from "./componets/todoContainer";
+export default function(){
+	return (
+		<TodoProvider>
+			<TodoContainer />
+		</TodoProvider>);
+}
 
-render(<App />, document.getElementById('root'));
